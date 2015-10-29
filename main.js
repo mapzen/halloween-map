@@ -78,6 +78,17 @@ map = (function () {
         }
     });
 
+    var fog = document.getElementById('fog')
+    var fog2 = document.getElementById('fog2-container')
+    window.addEventListener('mousemove', function (e) {
+        var posX = e.clientX
+        var posY = e.clientY
+        var offsetX = - (posX - (window.innerWidth / 2)) / 50
+        var offsetY = - (posY - (window.innerHeight / 2)) / 50
+        fog.style.transform = 'translate3d(' + offsetX + 'px, ' + offsetY + 'px, 0px)'
+        fog2.style.transform = 'translate3d(' + offsetX / 2 + 'px, ' + offsetY / 2 + 'px, 0px)'
+    })
+
     return map;
 
 }());
