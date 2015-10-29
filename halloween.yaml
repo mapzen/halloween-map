@@ -376,6 +376,8 @@ layers:
                             return name.replace(/Saint/, 'Ain’t');
                         } else if (/Mort/.test(name)) {
                             return name.replace(/Mort(\w+)/, 'Mortal');
+                        } else if (/Hous/.test(name)) {
+                            return name.replace(/Hous/, 'Howls');
                         } else if (/Bleecker/.test(name)) {
                             return name.replace(/Bleecker/, 'Bleaker');
                         } else if (/Co(\w*)ver/.test(name)) {
