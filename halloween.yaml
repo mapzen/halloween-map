@@ -297,6 +297,7 @@ styles:
 
     gradient2:
         base: polygons
+        mix: grid
         texcoords: true
         shaders:
             blocks:
