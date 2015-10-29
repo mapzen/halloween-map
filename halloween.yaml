@@ -44,8 +44,6 @@ textures:
             boy: [215, 845, 420, 1050]
             zombie: [425, 845, 630, 1050]
 
-
-
 styles:
     icons:
         base: points
@@ -457,6 +455,8 @@ layers:
                             return (Math.random() > 0.5) ? name.replace(/\bO/, 'Oooooo') : adjective(name);
                         } else if (/ave\b/.test(name)) {
                             return name.replace(/(\w)ave\b/, 'grave');
+                        } else if (/Square/.test(name)) {
+                            return name.replace(/(Square/, 'Scare');
                         } else if (/are\b/.test(name)) {
                             return name.replace(/(\w)are\b/, 'scare');
                         } else if (/house\b/.test(name)) {
@@ -509,6 +509,8 @@ layers:
                             return name.replace(/13th/, 'Friday the 13th');
                         } else if (/\bZ\b/.test(name)) {
                             return name.replace(/\bZ\b/, 'Zombie');
+                        } else if (/Broom/.test(name)) {
+                            return name.replace(/Broom/, 'Witch’s Broom');
                         } else if (/Broo/.test(name)) {
                             return name.replace(/Broo/, 'Booo');
                         } else if (/Bow/.test(name)) {
