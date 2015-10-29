@@ -451,6 +451,55 @@ layers:
                             }
                         }
 
+                        function replacement(name) {
+                            var dice = Math.random();
+                            if (dice < .06) {
+                                return (name && 'Haunted ' + name);
+                            } else if (dice < .10) {
+                                return (name && 'Scary ' + name);
+                            } else if (dice < .14) {
+                                return (name && 'Morbid ' + name);
+                            } else if (dice < .18) {
+                                return (name && 'Silent ' + name);
+                            } else if (dice < .22) {
+                                return (name && 'Bizarre ' + name);
+                            } else if (dice < .26) {
+                                return (name && 'Ghastly ' + name);
+                            } else if (dice < .30) {
+                                return (name && 'Grim ' + name);
+                            } else if (dice < .34) {
+                                return (name && 'Spooky ' + name);
+                            } else if (dice < .38) {
+                                return (name && 'Mysterious ' + name);
+                            } else if (dice < .42) {
+                                return (name && 'Gruesome ' + name);
+                            } else if (dice < .48) {
+                                return (name && 'Gory ' + name);
+                            } else if (dice < .53) {
+                                return (name && 'Moonlit ' + name);
+                            } else if (dice < .58) {
+                                return (name && 'Deadly ' + name);
+                            } else if (dice < .64) {
+                                return (name && 'Macabre ' + name);
+                            } else if (dice < .66) {
+                                return (name && 'Dreadful ' + name);
+                            } else if (dice < .70) {
+                                return (name && 'Supernatural ' + name);
+                            } else if (dice < .73) {
+                                return (name && 'Unnerving ' + name);
+                            } else if (dice < .77) {
+                                return (name && 'Shadowy ' + name);
+                            } else if (dice < .82) {
+                                return (name && 'Creepy ' + name);
+                            } else if (dice < .88) {
+                                return (name && 'Eerie ' + name);
+                            } else if (dice < .94) {
+                                return (name && 'Bloody ' + name);
+                            } else {
+                                return (name && 'Wicked ' + name);
+                            }
+                        }
+
                         if (/\bO/.test(name)) {
                             return (Math.random() > 0.5) ? name.replace(/\bO/, 'Oooooo') : adjective(name);
                         } else if (/ave\b/.test(name)) {
@@ -461,6 +510,8 @@ layers:
                             return name.replace(/(\w)are\b/, 'scare');
                         } else if (/house\b/.test(name)) {
                             return name.replace(/house\b/, 'Haunted House');
+                        } else if (/c(a|o)ry\b/.test(name)) {
+                            return name.replace(/c(a|o)ry\b/, '-gory');
                         } else if (/fair/.test(name)) {
                             return name.replace(/fair/, 'fear');
                         } else if (/Fair/.test(name)) {
@@ -471,6 +522,12 @@ layers:
                             return name.replace(/Park/, 'Dark');
                         } else if (/^New/.test(name)) {
                             return name.replace(/^New/, 'Boo');
+                        } else if (/^Eye/.test(name)) {
+                            return name.replace(/^Eye/, 'Eyeball');
+                        } else if (/\bI\b/.test(name)) {
+                            return name.replace(/\bI\b/, 'Eyeball');
+                        } else if (/^S(\w+) Hill/.test(name)) {
+                            return name.replace(/^S(\w+) Hill/, 'Silent Hill');
                         } else if (/Greenway/.test(name)) {
                             return name.replace(/Greenway/, 'Graveyard');
                         } else if (/Yard/.test(name)) {
