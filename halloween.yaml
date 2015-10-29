@@ -20,10 +20,31 @@ textures:
         filtering: mipmap
         sprites:
             # define sprites: [x origin, y origin, width, height]
-            mummy:  [5, 5, 205, 205]
-            skull:  [210, 5, 410, 205]
-            undead1:  [5, 210, 205, 410]
-            zombie:  [210, 210, 410, 410]
+            axe: [5, 5, 210, 205]
+            sport: [215, 5, 420, 205]
+            bats: [425, 5, 630, 205]
+            pet-store: [635, 5, 840, 205]
+            mummy: [845, 5, 1050, 205]
+            cemetary: [5, 215, 210, 420]
+            toys: [215, 215, 420, 420]
+            cop: [425, 215, 630, 420]
+            death: [635, 215, 840, 420]
+            nurse: [845, 215, 1050, 420]
+            dracula: [5, 425, 210, 630]
+            eyeball: [215, 425, 420, 630]
+            fangs: [425,425, 630, 630]
+            frankenstein: [635, 425, 840, 630]
+            skull1: [845, 425, 1050, 630]
+            hand: [5, 635, 210, 840]
+            haunted_house: [215, 635, 420, 840]
+            jacko: [425, 635, 630, 840]
+            mask: [635, 635, 840, 840]
+            skull2: [845, 635, 1050, 840]
+            spider: [5, 845, 210, 1050]
+            boy: [215, 845, 420, 1050]
+            zombie: [425, 845, 630, 1050]
+
+
 
 styles:
     icons:
@@ -95,8 +116,8 @@ styles:
                         return pct;
                     }
                     // Draw two grid that smoothly interpolates acording to zooms
-                    float tileGrid(){ 
-                        return mix(tileGrid(1.),tileGrid(2.),fract(u_map_position.z)); 
+                    float tileGrid(){
+                        return mix(tileGrid(1.),tileGrid(2.),fract(u_map_position.z));
                     }
     generative-random:
         shaders:
@@ -119,8 +140,8 @@ styles:
                     //
                     // 3D Random for 2 dimentions
                     // ================================
-                    vec3 random3 (vec2 xy) { 
-                        return fract(sin(vec3( dot(xy,vec2(127.1,311.7)), dot(xy,vec2(269.5,183.3)), dot(xy,vec2(419.2,371.9)) ))*43758.5453); 
+                    vec3 random3 (vec2 xy) {
+                        return fract(sin(vec3( dot(xy,vec2(127.1,311.7)), dot(xy,vec2(269.5,183.3)), dot(xy,vec2(419.2,371.9)) ))*43758.5453);
                     }
     generative-noise:
         mix: generative-random
@@ -190,7 +211,7 @@ styles:
                         float v = 0.0;
                         float a = 0.5;
                         vec2 shift = vec2(100.0);
-                        mat2 rot = mat2(cos(0.5), sin(0.5), 
+                        mat2 rot = mat2(cos(0.5), sin(0.5),
                                         -sin(0.5), cos(0.50));
                         for (int i = 0; i < int(NUM_OCTAVES); ++i) {
                             v += a * noise(xy);
@@ -235,7 +256,7 @@ styles:
                                 return smoothstep(threshold-afwidth, threshold+afwidth, value);
                             #else
                                 return step(threshold, value);
-                            #endif  
+                            #endif
                         #else
                             return step(threshold, value);
                         #endif
@@ -251,12 +272,12 @@ styles:
                     float stripesDF (vec2 st) {
                         return abs(sin(st.y*PI));
                     }
-                    
+
                     // Adjustable width stripes
                     float stripes (vec2 st, float width) {
                         return aastep(width,stripesDF(st));
                     }
-                    
+
                     // Faster optimisation of diagonal stripes
                     float diagonalStripes (vec2 st) {
                         vec2 i_st = floor(st);
@@ -304,15 +325,15 @@ styles:
                 global: |
                     float pulse(float x, float p, float w){
                         return (smoothstep(p-w*.5,p,x) + smoothstep(p+w*.5,p,x))-1.0;
-                        }    
+                        }
                 color: |
                     vec2 st = v_texcoord.xy;
-                    
+
                     vec3 A = vec3(0.000,0.000,0.000);
                     vec3 B = vec3(0.854,0.423,0.195);
                     vec3 C = vec3(0.376,0.320,0.726);
                     vec3 D = vec3(0.854,0.423,0.195);
-                    
+
                     color.rgb = mix(color.rgb,A,pulse(gl_FragCoord.x / u_resolution.x,.0,1.));
                     color.rgb = mix(color.rgb,B,pulse(gl_FragCoord.x / u_resolution.x,.35,1.));
                     color.rgb = mix(color.rgb,C,pulse(gl_FragCoord.x / u_resolution.x,.75,1.));
@@ -482,3 +503,124 @@ layers:
                 order: 4
                 color: '#777'
                 width: 5
+
+# halloween icons
+    icons:
+        pet-store:
+            filter: { kind: [pet, pet-store, pet-service, pet_store] }
+            draw:   { icons: { sprite: pet-store } }
+
+        sporting-goods-shop:
+            filter: { kind: [sporting_goods, sporting-goods-shop, sports, outdoor] }
+            draw:   { icons: { sprite: sport } }
+
+        athletics-sports:
+            filter: { kind: [athletic_sports, recreation_ground] }
+            draw:   { icons: { sprite: sport } }
+
+        sports-pitch:
+            filter: { kind: [grass, pitch], label_placement: yes, area: true, $zoom: { min: 17 } }
+            draw:
+                icons:
+                    sprite: function() { return feature.sport }
+                    visible: true
+            baseball:
+                filter: { sport: baseball }
+                draw: { icons: { sprite: sport } }
+
+        toy-game-store:
+            filter: { kind: [toys, toy-game-store, baby_goods] }
+            draw:   { icons: { sprite: toys } }
+
+        video-game-store:
+            filter: { kind: [video_games] }
+            draw:   { icons: { sprite: toys } }
+
+        candy-store:
+                    filter: { kind: [candy, candy-store, confectionery] }
+                    draw:   { icons: { sprite: fangs } }
+
+        animal-shelter:
+            filter: { kind: [animal_shelter, animal-shelter, animal_boarding] }
+            draw:   { icons: { sprite: pet-store } }
+
+        bar:
+            filter: { kind: [pub, bar] }
+            draw:   { icons: { sprite: death } }
+
+        nightlife:
+            filter: { kind: [nightclub, nightlife] }
+            draw:   { icons: { sprite: death } }
+
+        bookstore:
+            filter: { kind: [books, bookstore] }
+            draw:   { icons: { sprite: haunted_house } }
+
+        castle:
+            filter: { kind: [castle, fort] }
+            draw:   { icons: { sprite: haunted_house } }
+
+        hotel:
+            filter: { kind: [hotel, motel, hostel] }
+            draw:   { icons: { sprite: haunted_house } }
+
+        cemetery:
+            filter: { kind: [grave_yard, cemetery] }
+            draw:   { icons: { sprite: cemetery } }
+
+        dog-run:
+            filter: { kind: [dog_park, dog_run, dog-run] }
+            draw:   { icons: { sprite: hand } }
+
+        fire-station:
+            filter: { kind: [fire_station, fire-station] }
+            draw:   { icons: { sprite: cop } }
+
+        gift-shop:
+            filter: { kind: [gift, gift-shop] }
+            draw:   { icons: { sprite: spider } }
+
+        museum:
+            filter: { kind: [museum, observatory] }
+            draw:   { icons: { sprite: mummy } }
+
+        pharmacy:
+            filter: { kind: [pharmacy, chemist] }
+            draw:   { icons: { sprite: nurse } }
+
+        optical-shop:
+            filter: { kind: [optician, optical_shop, optical-shop] }
+            draw:   { icons: { sprite: eyeball } }
+
+        post-office:
+            filter: { kind: [post_office, post-office] }
+            draw:   { icons: { sprite: zombie } }
+
+        restaurant:
+            filter: { kind: [restaurant, deli] }
+            draw:   { icons: { sprite: bats } }
+
+        school:
+            filter: { kind: [school, kindergarten] }
+            draw:   { icons: { sprite: boy } }
+
+        spiritual-center:
+            filter: { kind: [spiritual_center, spiritual-center, place_of_worship, wayside_chapel] }
+            draw:   { icons: { sprite: axe} }
+            church:
+                filter: { kind: place_of_worship, religion: christian }
+                draw:   { icons: { sprite: axe } }
+            synagogue:
+                filter: { kind: place_of_worship, religion: jewish }
+                draw:   { icons: { sprite: axe } }
+            buddhist:
+                filter: { kind: place_of_worship, religion: buddhist }
+                draw:   { icons: { sprite: axe } }
+            mosque:
+                filter: { kind: place_of_worship, religion: muslim }
+                draw:   { icons: { sprite: axe } }
+
+        theme-park:
+                    filter: { kind: [theme_park, theme-park, miniature_golf] }
+                    draw:   { icons: { sprite: bats } }
+
