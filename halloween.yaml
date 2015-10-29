@@ -319,6 +319,30 @@ layers:
                 color: [0.83, 0.83, 0.83]
                 width: function () { return Math.log($zoom); }
     roads:
+        base: lines
+        animated: true
+        texcoords: true
+        lighting: false
+        shaders:
+            blocks:
+                global: |
+                    float getHatch(in vec2 _pos, float _angle, float _brigtness){
+                        _pos *= 10.;
+                        _pos = _pos.yx;
+                        return 1.0-smoothstep(-1.+_brigtness*2.0,3.,abs(sin(_pos.x*3.1415)));
+                    }
+                color: |
+                    vec2 st = v_texcoord.xy;
+                    float dir = -0.1;
+                    if ( v_color.r < 0.95) {
+                        if (st.x < 0.95) {
+                          dir *= -1.;
+                        }
+                        st.x = fract(st.x*2.0);
+                    }
+                    float pattern = getHatch( u_time*dir+st.xy*0.5, 3.1415*0.5, 0.5);
+                    color.rgb = vec3(0.5500,0.0,0.0)* pattern*sin(smoothstep(0.0,1.,st.x)*3.1415);
+    roads:
         data: { source: osm }
         properties: { width: 3 }
         draw:
