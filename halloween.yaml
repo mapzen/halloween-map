@@ -598,121 +598,121 @@ layers:
     # halloween icons
     pois_and_landuse_labels:
         data: { source: osm, layer: [pois, landuse_labels] }
-            icons:
-                pet-store:
-                    filter: { kind: [pet, pet-store, pet-service, pet_store] }
-                    draw:   { icons: { sprite: pet-store } }
+        icons:
+            pet-store:
+                filter: { kind: [pet, pet-store, pet-service, pet_store] }
+                draw:   { icons: { sprite: pet-store } }
 
-                sporting-goods-shop:
-                    filter: { kind: [sporting_goods, sporting-goods-shop, sports, outdoor] }
-                    draw:   { icons: { sprite: sport } }
+            sporting-goods-shop:
+                filter: { kind: [sporting_goods, sporting-goods-shop, sports, outdoor] }
+                draw:   { icons: { sprite: sport } }
 
-                athletics-sports:
-                    filter: { kind: [athletic_sports, recreation_ground] }
-                    draw:   { icons: { sprite: sport } }
+            athletics-sports:
+                filter: { kind: [athletic_sports, recreation_ground] }
+                draw:   { icons: { sprite: sport } }
 
-                sports-pitch:
-                    filter: { kind: [grass, pitch], label_placement: yes, area: true, $zoom: { min: 17 } }
-                    draw:
-                        icons:
-                            sprite: function() { return feature.sport }
-                            visible: true
-                    baseball:
-                        filter: { sport: baseball }
-                        draw: { icons: { sprite: sport } }
+            sports-pitch:
+                filter: { kind: [grass, pitch], label_placement: yes, area: true, $zoom: { min: 17 } }
+                draw:
+                    icons:
+                        sprite: function() { return feature.sport }
+                        visible: true
+                baseball:
+                    filter: { sport: baseball }
+                    draw: { icons: { sprite: sport } }
 
-                toy-game-store:
-                    filter: { kind: [toys, toy-game-store, baby_goods] }
-                    draw:   { icons: { sprite: toys } }
+            toy-game-store:
+                filter: { kind: [toys, toy-game-store, baby_goods] }
+                draw:   { icons: { sprite: toys } }
 
-                video-game-store:
-                    filter: { kind: [video_games] }
-                    draw:   { icons: { sprite: toys } }
+            video-game-store:
+                filter: { kind: [video_games] }
+                draw:   { icons: { sprite: toys } }
 
-                candy-store:
-                            filter: { kind: [candy, candy-store, confectionery] }
-                            draw:   { icons: { sprite: fangs } }
+            candy-store:
+                        filter: { kind: [candy, candy-store, confectionery] }
+                        draw:   { icons: { sprite: fangs } }
 
-                animal-shelter:
-                    filter: { kind: [animal_shelter, animal-shelter, animal_boarding] }
-                    draw:   { icons: { sprite: pet-store } }
+            animal-shelter:
+                filter: { kind: [animal_shelter, animal-shelter, animal_boarding] }
+                draw:   { icons: { sprite: pet-store } }
 
-                bar:
-                    filter: { kind: [pub, bar] }
-                    draw:   { icons: { sprite: death } }
+            bar:
+                filter: { kind: [pub, bar] }
+                draw:   { icons: { sprite: death } }
 
-                nightlife:
-                    filter: { kind: [nightclub, nightlife] }
-                    draw:   { icons: { sprite: death } }
+            nightlife:
+                filter: { kind: [nightclub, nightlife] }
+                draw:   { icons: { sprite: death } }
 
-                bookstore:
-                    filter: { kind: [books, bookstore] }
-                    draw:   { icons: { sprite: haunted_house } }
+            bookstore:
+                filter: { kind: [books, bookstore] }
+                draw:   { icons: { sprite: haunted_house } }
 
-                castle:
-                    filter: { kind: [castle, fort] }
-                    draw:   { icons: { sprite: haunted_house } }
+            castle:
+                filter: { kind: [castle, fort] }
+                draw:   { icons: { sprite: haunted_house } }
 
-                hotel:
-                    filter: { kind: [hotel, motel, hostel] }
-                    draw:   { icons: { sprite: haunted_house } }
+            hotel:
+                filter: { kind: [hotel, motel, hostel] }
+                draw:   { icons: { sprite: haunted_house } }
 
-                cemetery:
-                    filter: { kind: [grave_yard, cemetery] }
-                    draw:   { icons: { sprite: cemetery } }
+            cemetery:
+                filter: { kind: [grave_yard, cemetery] }
+                draw:   { icons: { sprite: cemetery } }
 
-                dog-run:
-                    filter: { kind: [dog_park, dog_run, dog-run] }
-                    draw:   { icons: { sprite: hand } }
+            dog-run:
+                filter: { kind: [dog_park, dog_run, dog-run] }
+                draw:   { icons: { sprite: hand } }
 
-                fire-station:
-                    filter: { kind: [fire_station, fire-station] }
-                    draw:   { icons: { sprite: cop } }
+            fire-station:
+                filter: { kind: [fire_station, fire-station] }
+                draw:   { icons: { sprite: cop } }
 
-                gift-shop:
-                    filter: { kind: [gift, gift-shop] }
-                    draw:   { icons: { sprite: spider } }
+            gift-shop:
+                filter: { kind: [gift, gift-shop] }
+                draw:   { icons: { sprite: spider } }
 
-                museum:
-                    filter: { kind: [museum, observatory] }
-                    draw:   { icons: { sprite: mummy } }
+            museum:
+                filter: { kind: [museum, observatory] }
+                draw:   { icons: { sprite: mummy } }
 
-                pharmacy:
-                    filter: { kind: [pharmacy, chemist] }
-                    draw:   { icons: { sprite: nurse } }
+            pharmacy:
+                filter: { kind: [pharmacy, chemist] }
+                draw:   { icons: { sprite: nurse } }
 
-                optical-shop:
-                    filter: { kind: [optician, optical_shop, optical-shop] }
-                    draw:   { icons: { sprite: eyeball } }
+            optical-shop:
+                filter: { kind: [optician, optical_shop, optical-shop] }
+                draw:   { icons: { sprite: eyeball } }
 
-                post-office:
-                    filter: { kind: [post_office, post-office] }
-                    draw:   { icons: { sprite: zombie } }
+            post-office:
+                filter: { kind: [post_office, post-office] }
+                draw:   { icons: { sprite: zombie } }
 
-                restaurant:
-                    filter: { kind: [restaurant, deli] }
-                    draw:   { icons: { sprite: bats } }
+            restaurant:
+                filter: { kind: [restaurant, deli] }
+                draw:   { icons: { sprite: bats } }
 
-                school:
-                    filter: { kind: [school, kindergarten] }
-                    draw:   { icons: { sprite: boy } }
+            school:
+                filter: { kind: [school, kindergarten] }
+                draw:   { icons: { sprite: boy } }
 
-                spiritual-center:
-                    filter: { kind: [spiritual_center, spiritual-center, place_of_worship, wayside_chapel] }
-                    draw:   { icons: { sprite: axe} }
-                    church:
-                        filter: { kind: place_of_worship, religion: christian }
-                        draw:   { icons: { sprite: axe } }
-                    synagogue:
-                        filter: { kind: place_of_worship, religion: jewish }
-                        draw:   { icons: { sprite: axe } }
-                    buddhist:
-                        filter: { kind: place_of_worship, religion: buddhist }
-                        draw:   { icons: { sprite: axe } }
-                    mosque:
-                        filter: { kind: place_of_worship, religion: muslim }
-                        draw:   { icons: { sprite: axe } }
+            spiritual-center:
+                filter: { kind: [spiritual_center, spiritual-center, place_of_worship, wayside_chapel] }
+                draw:   { icons: { sprite: axe} }
+                church:
+                    filter: { kind: place_of_worship, religion: christian }
+                    draw:   { icons: { sprite: axe } }
+                synagogue:
+                    filter: { kind: place_of_worship, religion: jewish }
+                    draw:   { icons: { sprite: axe } }
+                buddhist:
+                    filter: { kind: place_of_worship, religion: buddhist }
+                    draw:   { icons: { sprite: axe } }
+                mosque:
+                    filter: { kind: place_of_worship, religion: muslim }
+                    draw:   { icons: { sprite: axe } }
 
-                theme-park:
-                    filter: { kind: [theme_park, theme-park, miniature_golf] }
-                    draw:   { icons: { sprite: bats } }
+            theme-park:
+                filter: { kind: [theme_park, theme-park, miniature_golf] }
+                draw:   { icons: { sprite: bats } }
