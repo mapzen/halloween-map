@@ -1,4 +1,4 @@
-﻿# Author @patriciogv - 2015
+# Author @patriciogv - 2015
 
 sources:
     osm:
@@ -259,6 +259,30 @@ styles:
             blocks:
                 color: |
                     color.rgb += vec3(.2)*tileGrid();
+    roads:
+        base: lines
+        animated: true
+        texcoords: true
+        lighting: false
+        shaders:
+            blocks:
+                global: |
+                    float getHatch(in vec2 _pos, float _angle, float _brigtness){
+                        _pos *= 10.;
+                        _pos = _pos.yx;
+                        return 1.0-smoothstep(-1.+_brigtness*2.0,3.,abs(sin(_pos.x*3.1415)));
+                    }
+                color: |
+                    vec2 st = v_texcoord.xy;
+                    float dir = -0.1;
+                    if ( v_color.r < 0.95) {
+                        if (st.x < 0.95) {
+                          dir *= -1.;
+                        }
+                        st.x = fract(st.x*2.0);
+                    }
+                    float pattern = getHatch( u_time*dir+st.xy*0.5, 3.1415*0.5, 0.5);
+                    color.rgb = vec3(0.5500,0.0,0.0)* pattern*sin(smoothstep(0.0,1.,st.x)*3.1415);
     buildings:
         base: polygons
         mix: filter-grain
@@ -316,35 +340,11 @@ layers:
         draw:
             flatlines:
                 order: 3
-                color: [0.83, 0.83, 0.83]
+                color: [0.769, 0.722, 0.812]
                 width: function () { return Math.log($zoom); }
     roads:
-        base: lines
-        animated: true
-        texcoords: true
-        lighting: false
-        shaders:
-            blocks:
-                global: |
-                    float getHatch(in vec2 _pos, float _angle, float _brigtness){
-                        _pos *= 10.;
-                        _pos = _pos.yx;
-                        return 1.0-smoothstep(-1.+_brigtness*2.0,3.,abs(sin(_pos.x*3.1415)));
-                    }
-                color: |
-                    vec2 st = v_texcoord.xy;
-                    float dir = -0.1;
-                    if ( v_color.r < 0.95) {
-                        if (st.x < 0.95) {
-                          dir *= -1.;
-                        }
-                        st.x = fract(st.x*2.0);
-                    }
-                    float pattern = getHatch( u_time*dir+st.xy*0.5, 3.1415*0.5, 0.5);
-                    color.rgb = vec3(0.5500,0.0,0.0)* pattern*sin(smoothstep(0.0,1.,st.x)*3.1415);
-    roads:
         data: { source: osm }
-        properties: { width: 3 }
+        filter: { not: { kind: [rail, ferry] } }
         draw:
             text:
                 text_source: |
@@ -464,7 +464,49 @@ layers:
                 font:
                     fill: white
                     typeface: 100 11px Helvetica
-            lines:
-                order: 2
-                color: '#777'
-                width: 5
+            roads:
+                order: 4
+                color: [0, 0, 0]
+                width: 8
+        oneway:
+            filter: { oneway: yes }
+            draw: { roads: { color: red } }
+
+        highway:
+            filter:
+                kind: highway
+            draw:
+                roads:
+                    order: 5
+                    width: 12
+                outline:
+                    style: lines
+                    order: 4
+                    color: [0.769, 0.733, 0.710]
+                    width: 13
+        tunnel:
+            filter:
+                is_tunnel: yes
+            rail:
+                filter:
+                    kind: rail
+                visible: false
+        minor_road:
+            filter:
+                kind: minor_road
+            draw:
+                roads:
+                    width: 5
+        path:
+            filter:
+                kind: path
+            draw:
+                roads:
+                    width: 3
+        rail:
+            filter:
+                kind: rail
+                is_tunnel: no
+            draw:
+                roads:
+                    width: 3
