@@ -456,7 +456,7 @@ layers:
                         } else if (/ave\b/.test(name)) {
                             return name.replace(/(\w)ave\b/, 'grave');
                         } else if (/Square/.test(name)) {
-                            return name.replace(/(Square/, 'Scare');
+                            return name.replace(/Square/, 'Scare');
                         } else if (/are\b/.test(name)) {
                             return name.replace(/(\w)are\b/, 'scare');
                         } else if (/house\b/.test(name)) {
