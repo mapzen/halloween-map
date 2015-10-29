@@ -413,6 +413,8 @@ layers:
                                 return (name && 'Deadly ' + name);
                             } else if (dice < .64) {
                                 return (name && 'Macabre ' + name);
+                            } else if (dice < .66) {
+                                return (name && 'Dreadful ' + name);
                             } else if (dice < .70) {
                                 return (name && 'Supernatural ' + name);
                             } else if (dice < .73) {
@@ -470,6 +472,8 @@ layers:
                             return name.replace(/Bleecker/, 'Bleaker');
                         } else if (/Co(\w*)ver/.test(name)) {
                             return name.replace(/Co(\w*)ver/, 'Cadaver');
+                        } else if (/gheny\b/.test(name)) {
+                            return name.replace(/gheny\b/, 'ghouly');
                         } else if (/view\b/.test(name)) {
                             return name.replace(/view\b/, 'v-eeeew');
                         } else if (/wich/.test(name)) {
