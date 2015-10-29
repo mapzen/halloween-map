@@ -293,10 +293,35 @@ styles:
             blocks:
                 color: |
                     color = mix(color,vec4(0.),diagonalStripes( getConstantCoords()*33.))*.8;
+
+
+    gradient2:
+        base: polygons
+        texcoords: true
+        shaders:
+            blocks:
+                global: |
+                    float pulse(float x, float p, float w){
+                        return (smoothstep(p-w*.5,p,x) + smoothstep(p+w*.5,p,x))-1.0;
+                        }    
+                color: |
+                    vec2 st = v_texcoord.xy;
+                    
+                    vec3 A = vec3(0.000,0.000,0.000);
+                    vec3 B = vec3(0.854,0.423,0.195);
+                    vec3 C = vec3(0.376,0.320,0.726);
+                    vec3 D = vec3(0.854,0.423,0.195);
+                    
+                    color.rgb = mix(color.rgb,A,pulse(gl_FragCoord.x / u_resolution.x,.0,1.));
+                    color.rgb = mix(color.rgb,B,pulse(gl_FragCoord.x / u_resolution.x,.35,1.));
+                    color.rgb = mix(color.rgb,C,pulse(gl_FragCoord.x / u_resolution.x,.75,1.));
+                    color.rgb = mix(color.rgb,D,pulse(gl_FragCoord.x / u_resolution.x,1.,.75));
 layers:
     water:
         data: { source: osm }
         draw:
+            gradient2:
+                order: 3
             grid:
                 order: 2
                 color: '#353535'
