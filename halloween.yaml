@@ -14,7 +14,22 @@ lights:
         direction: [.1, .5, -1]
         diffuse: [0.404, 0.404, 0.404]
         ambient: [0.184, 0.125, 0.310]
+textures:
+    pois:
+        url: images/halloween-sprite.png
+        filtering: mipmap
+        sprites:
+            # define sprites: [x origin, y origin, width, height]
+            mummy:  [5, 5, 205, 205]
+            skull:  [210, 5, 410, 205]
+            undead1:  [5, 210, 205, 410]
+            zombie:  [210, 210, 410, 410]
+
 styles:
+    icons:
+        base: points
+        texture: pois
+        interactive: false
     space-tile:
         shaders:
             defines:
@@ -297,6 +312,9 @@ layers:
             area:
                 order: 1
                 color: [1.000, 0.580, 0.000]
+            icons:
+                size: 24px
+                sprite: mummy
     buildings:
         data: { source: osm }
         filter: { $zoom: { min: 10 } }

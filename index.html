@@ -27,11 +27,23 @@
             width: 100%;
             position: absolute;
         }
+
+        #fog {
+            background-image: url('./images/fog/fog-1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80%;
+            height: 50%;
+        }
     </style>
   </head>
 
   <body>
     <div id="map"></div>
+    <div id="fog1"></div>
 
     <!-- Load Leaflet from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2/leaflet.js"></script>
