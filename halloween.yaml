@@ -412,49 +412,6 @@ layers:
                             var dice = Math.random();
                             if (dice < .06) {
                                 return (name && 'Haunted ' + name);
-                            } else if (dice < .14) {
-                                return (name && 'Scary ' + name);
-                            } else if (dice < .22) {
-                                return (name && 'Bizarre ' + name);
-                            } else if (dice < .26) {
-                                return (name && 'Ghastly ' + name);
-                            } else if (dice < .30) {
-                                return (name && 'Grim ' + name);
-                            } else if (dice < .35) {
-                                return (name && 'Spooky ' + name);
-                            } else if (dice < .42) {
-                                return (name && 'Gruesome ' + name);
-                            } else if (dice < .48) {
-                                return (name && 'Gory ' + name);
-                            } else if (dice < .53) {
-                                return (name && 'Moonlit ' + name);
-                            } else if (dice < .58) {
-                                return (name && 'Deadly ' + name);
-                            } else if (dice < .64) {
-                                return (name && 'Macabre ' + name);
-                            } else if (dice < .66) {
-                                return (name && 'Dreadful ' + name);
-                            } else if (dice < .70) {
-                                return (name && 'Supernatural ' + name);
-                            } else if (dice < .73) {
-                                return (name && 'Unnerving ' + name);
-                            } else if (dice < .77) {
-                                return (name && 'Shadowy ' + name);
-                            } else if (dice < .82) {
-                                return (name && 'Creepy ' + name);
-                            } else if (dice < .88) {
-                                return (name && 'Eerie ' + name);
-                            } else if (dice < .94) {
-                                return (name && 'Bloody ' + name);
-                            } else {
-                                return (name && 'Wicked ' + name);
-                            }
-                        }
-
-                        function replacement(name) {
-                            var dice = Math.random();
-                            if (dice < .06) {
-                                return (name && 'Haunted ' + name);
                             } else if (dice < .10) {
                                 return (name && 'Scary ' + name);
                             } else if (dice < .14) {
@@ -498,6 +455,11 @@ layers:
                             } else {
                                 return (name && 'Wicked ' + name);
                             }
+                        }
+
+                        function replacement(name) {
+                            var dice = Math.random();
+                            // TODO
                         }
 
                         if (/\bO/.test(name)) {
@@ -581,7 +543,7 @@ layers:
                         } else if (/^East?\s/.test(name)) {
                             return name.replace(/^East\s/i, 'Beast ');
                         }
-                        return (Math.random() > .10) ? adjective(name) : name;
+                        return (Math.random() > .20) ? adjective(name) : name;
                     }
                 font:
                     fill: white
