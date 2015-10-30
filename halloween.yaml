@@ -474,6 +474,8 @@ layers:
                             return name.replace(/house\b/, 'Haunted House');
                         } else if (/c(a|o)ry\b/.test(name)) {
                             return name.replace(/c(a|o)ry\b/, '-gory');
+                        } else if (/dero\b/.test(name)) {
+                            return name.replace(/dero\b/, '-devil');
                         } else if (/fair/.test(name)) {
                             return name.replace(/fair/, 'fear');
                         } else if (/Fair/.test(name)) {
@@ -494,6 +496,8 @@ layers:
                             return name.replace(/Greenway/, 'Graveyard');
                         } else if (/Yard/.test(name)) {
                             return name.replace(/Yard/, 'Graveyard');
+                        } else if (/Highway/.test(name)) {
+                            return name.replace(/Highway/, 'Frightway');
                         } else if (/Center|Centre/.test(name)) {
                             return name.replace(/Center|Centre/, 'Cemetary');
                         } else if (/Walk$/.test(name)) {
@@ -506,12 +510,16 @@ layers:
                             return name.replace(/Saint/, 'Ain’t');
                         } else if (/Mort/.test(name)) {
                             return name.replace(/Mort(\w+)/, 'Mortal');
+                        } else if (/ier\b/.test(name)) {
+                            return name.replace(/ier\b/, '-eerie');
                         } else if (/Hous/.test(name)) {
                             return name.replace(/Hous/, 'Howls');
                         } else if (/Bleecker/.test(name)) {
                             return name.replace(/Bleecker/, 'Bleaker');
                         } else if (/Co(\w*)ver/.test(name)) {
                             return name.replace(/Co(\w*)ver/, 'Cadaver');
+                        } else if (/Terrace/.test(name)) {
+                            return name.replace(/Terrace/, 'Terrors');
                         } else if (/gheny\b/.test(name)) {
                             return name.replace(/gheny\b/, 'ghouly');
                         } else if (/view\b/.test(name)) {
@@ -521,11 +529,13 @@ layers:
                         } else if (/berry/.test(name)) {
                             return name.replace(/berry/, 'scary');
                         } else if (/\b66th/.test(name)) {
-                            return name.replace(/66th/, '666th');
+                            return name.replace(/\b66th/, '666th');
                         } else if (/\b6th/.test(name)) {
-                            return name.replace(/6th/, '666th');
+                            return name.replace(/\b6th/, '666th');
                         } else if (/\b13th/.test(name)) {
-                            return name.replace(/13th/, 'Friday the 13th');
+                            return name.replace(/\b9th/, '9-ft Under');
+                        } else if (/\b13th/.test(name)) {
+                            return name.replace(/\b13th/, 'Friday the 13th');
                         } else if (/\bZ\b/.test(name)) {
                             return name.replace(/\bZ\b/, 'Zombie');
                         } else if (/Broom/.test(name)) {
