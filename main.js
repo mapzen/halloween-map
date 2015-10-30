@@ -65,23 +65,25 @@ map = (function () {
         layer.on('init', function() {
         });
         layer.addTo(map);
+
+        // disable scroll wheel zoom when embedded
+        if (window.self !== window.top) {
+            // For some reason have to enable then disable it....
+            map.scrollWheelZoom.enable();
+            map.scrollWheelZoom.disable();
+        }
     });
 
     // map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
     // toggle zooming with onclick
-    map.on('click', function() {
-        if (map.scrollWheelZoom.enabled()) {
-            map.scrollWheelZoom.disable();
-        } else {
-            map.scrollWheelZoom.enable();
-        }
-    });
-
-    // disable scroll wheel zoom when embedded
-    if (window.self !== window.top) {
-        map.touchZoom.disable();
-    }
+    // map.on('click', function() {
+    //     if (map.scrollWheelZoom.enabled()) {
+    //         map.scrollWheelZoom.disable();
+    //     } else {
+    //         map.scrollWheelZoom.enable();
+    //     }
+    // });
 
     var fog = document.getElementById('fog')
     var fog2 = document.getElementById('fog2-container')
