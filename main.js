@@ -78,6 +78,11 @@ map = (function () {
         }
     });
 
+    // disable scroll wheel zoom when embedded
+    if (window.self !== window.top) {
+        map.scrollWheelZoom.disable();
+    }
+
     var fog = document.getElementById('fog')
     var fog2 = document.getElementById('fog2-container')
     window.addEventListener('mousemove', function (e) {
