@@ -350,16 +350,18 @@ styles:
                         }
                 color: |
                     vec2 st = v_texcoord.xy;
+                    float sx = gl_FragCoord.x / u_resolution.x;
 
-                    vec3 A = vec3(0.000,0.000,0.000);
-                    vec3 B = vec3(0.854,0.423,0.195);
-                    vec3 C = vec3(0.376,0.320,0.726);
-                    vec3 D = vec3(0.854,0.423,0.195);
+                    const vec3 A = vec3(0.000,0.000,0.000);
+                    const vec3 B = vec3(0.854,0.423,0.195);
+                    const vec3 C = vec3(0.376,0.320,0.726);
+                    const vec3 D = vec3(0.854,0.423,0.195);
 
-                    color.rgb = mix(color.rgb,A,pulse(gl_FragCoord.x / u_resolution.x,.0,1.));
-                    color.rgb = mix(color.rgb,B,pulse(gl_FragCoord.x / u_resolution.x,.35,1.));
-                    color.rgb = mix(color.rgb,C,pulse(gl_FragCoord.x / u_resolution.x,.75,1.));
-                    color.rgb = mix(color.rgb,D,pulse(gl_FragCoord.x / u_resolution.x,1.,.75));
+                    color.rgb = mix(color.rgb,A,pulse(sx,.0,1.));
+                    color.rgb = mix(color.rgb,B,pulse(sx,.35,1.));
+                    color.rgb = mix(color.rgb,C,pulse(sx,.75,1.));
+                    color.rgb = mix(color.rgb,D,pulse(sx,1.,.75));
+
 layers:
     water:
         data: { source: osm }
