@@ -80,7 +80,7 @@ map = (function () {
 
     // disable scroll wheel zoom when embedded
     if (window.self !== window.top) {
-        map.scrollWheelZoom.disable();
+        map.touchZoom.disable();
     }
 
     var fog = document.getElementById('fog')
