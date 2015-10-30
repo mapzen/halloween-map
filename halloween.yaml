@@ -644,7 +644,7 @@ layers:
 
             cemetery:
                 filter: { kind: [grave_yard, cemetery] }
-                draw:   { icons: { sprite: cemetery } }
+                draw:   { icons: { sprite: cemetary } }
 
             dog-run:
                 filter: { kind: [dog_park, dog_run, dog-run] }
