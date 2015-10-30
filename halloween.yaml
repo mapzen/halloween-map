@@ -424,7 +424,7 @@ layers:
                                     'Mysterious', 'Gruesome', 'Gory', 'Moonlit',
                                     'Deadly', 'Macabre', 'Dreadful', 'Supernatural',
                                     'Unnerving', 'Shadowy', 'Creepy', 'Eerie',
-                                    'Bloody', 'Wicked'
+                                    'Bloody'
                                 ];
                                 return words[Math.floor(dice * words.length)] + ' ' + name;
                             }
