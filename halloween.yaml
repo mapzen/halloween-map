@@ -400,175 +400,141 @@ layers:
     roads:
         data: { source: osm, layer: roads }
         filter: { not: { kind: [rail, ferry] } }
-        properties: { width: 3 }
+    
         draw:
-            text:
-                order: 6
-                text_source: |
-                    function () {
-                        var name = feature.name;
-
-                        function adjective(name) {
-                            var dice = Math.random();
-                            if (dice < .06) {
-                                return (name && 'Haunted ' + name);
-                            } else if (dice < .10) {
-                                return (name && 'Scary ' + name);
-                            } else if (dice < .14) {
-                                return (name && 'Morbid ' + name);
-                            } else if (dice < .18) {
-                                return (name && 'Silent ' + name);
-                            } else if (dice < .22) {
-                                return (name && 'Bizarre ' + name);
-                            } else if (dice < .26) {
-                                return (name && 'Ghastly ' + name);
-                            } else if (dice < .30) {
-                                return (name && 'Grim ' + name);
-                            } else if (dice < .34) {
-                                return (name && 'Spooky ' + name);
-                            } else if (dice < .38) {
-                                return (name && 'Mysterious ' + name);
-                            } else if (dice < .42) {
-                                return (name && 'Gruesome ' + name);
-                            } else if (dice < .48) {
-                                return (name && 'Gory ' + name);
-                            } else if (dice < .53) {
-                                return (name && 'Moonlit ' + name);
-                            } else if (dice < .58) {
-                                return (name && 'Deadly ' + name);
-                            } else if (dice < .64) {
-                                return (name && 'Macabre ' + name);
-                            } else if (dice < .66) {
-                                return (name && 'Dreadful ' + name);
-                            } else if (dice < .70) {
-                                return (name && 'Supernatural ' + name);
-                            } else if (dice < .73) {
-                                return (name && 'Unnerving ' + name);
-                            } else if (dice < .77) {
-                                return (name && 'Shadowy ' + name);
-                            } else if (dice < .82) {
-                                return (name && 'Creepy ' + name);
-                            } else if (dice < .88) {
-                                return (name && 'Eerie ' + name);
-                            } else if (dice < .94) {
-                                return (name && 'Bloody ' + name);
-                            } else {
-                                return (name && 'Wicked ' + name);
-                            }
-                        }
-
-                        function replacement(name) {
-                            var dice = Math.random();
-                            // TODO
-                        }
-
-                        if (/\bO/.test(name)) {
-                            return (Math.random() > 0.5) ? name.replace(/\bO/, 'Oooooo') : adjective(name);
-                        } else if (/ave\b/.test(name)) {
-                            return name.replace(/(\w)ave\b/, 'grave');
-                        } else if (/Square/.test(name)) {
-                            return name.replace(/Square/, 'Scare');
-                        } else if (/are\b/.test(name)) {
-                            return name.replace(/(\w)are\b/, 'scare');
-                        } else if (/house\b/.test(name)) {
-                            return name.replace(/house\b/, 'Haunted House');
-                        } else if (/c(a|o)ry\b/.test(name)) {
-                            return name.replace(/c(a|o)ry\b/, '-gory');
-                        } else if (/dero\b/.test(name)) {
-                            return name.replace(/dero\b/, '-devil');
-                        } else if (/fair/.test(name)) {
-                            return name.replace(/fair/, 'fear');
-                        } else if (/Fair/.test(name)) {
-                            return name.replace(/Fair/, 'Fear');
-                        } else if (/park/.test(name)) {
-                            return name.replace(/park/, 'dark');
-                        } else if (/Park/.test(name)) {
-                            return name.replace(/Park/, 'Dark');
-                        } else if (/^New/.test(name)) {
-                            return name.replace(/^New/, 'Boo');
-                        } else if (/^Eye/.test(name)) {
-                            return name.replace(/^Eye/, 'Eyeball');
-                        } else if (/\bI\b/.test(name)) {
-                            return name.replace(/\bI\b/, 'Eyeball');
-                        } else if (/^S(\w+) Hill/.test(name)) {
-                            return name.replace(/^S(\w+) Hill/, 'Silent Hill');
-                        } else if (/Greenway/.test(name)) {
-                            return name.replace(/Greenway/, 'Graveyard');
-                        } else if (/Yard/.test(name)) {
-                            return name.replace(/Yard/, 'Graveyard');
-                        } else if (/Highway/.test(name)) {
-                            return name.replace(/Highway/, 'Frightway');
-                        } else if (/Center|Centre/.test(name)) {
-                            return name.replace(/Center|Centre/, 'Cemetary');
-                        } else if (/Walk$/.test(name)) {
-                            return name.replace(/Walk$/, 'Walking Dead');
-                        } else if (/walk\b/.test(name)) {
-                            return name.replace(/walk\b/, 'walking Dead');
-                        } else if (/Glade/.test(name)) {
-                            return name.replace(/Glade/, 'Grave');
-                        } else if (/Saint/.test(name)) {
-                            return name.replace(/Saint/, 'Ain’t');
-                        } else if (/Mort/.test(name)) {
-                            return name.replace(/Mort(\w+)/, 'Mortal');
-                        } else if (/ier\b/.test(name)) {
-                            return name.replace(/ier\b/, '-eerie');
-                        } else if (/Hous/.test(name)) {
-                            return name.replace(/Hous/, 'Howls');
-                        } else if (/Bleecker/.test(name)) {
-                            return name.replace(/Bleecker/, 'Bleaker');
-                        } else if (/Co(\w*)ver/.test(name)) {
-                            return name.replace(/Co(\w*)ver/, 'Cadaver');
-                        } else if (/Terrace/.test(name)) {
-                            return name.replace(/Terrace/, 'Terrors');
-                        } else if (/Pennsylvania/.test(name)) {
-                            // 50% chance that Pennsylvania gets replaced with Transylvania
-                            return (Math.random() > .5) ? name.replace(/Pennsylvania/, 'Transylvania') : name;
-                        } else if (/River\b/.test(name)) {
-                            return name.replace(/River/, 'River o’ Blood');
-                        } else if (/gheny\b/.test(name)) {
-                            return name.replace(/gheny/, 'ghouly');
-                        } else if (/view\b/.test(name)) {
-                            return name.replace(/view/, 'v-eeeew');
-                        } else if (/wich/.test(name)) {
-                            return name.replace(/wich/, ' Witch');
-                        } else if (/berry/.test(name)) {
-                            return name.replace(/berry/, 'scary');
-                        } else if (/\b66th/.test(name)) {
-                            return name.replace(/\b66th/, '666th');
-                        } else if (/\b6th/.test(name)) {
-                            return name.replace(/\b6th/, '666th');
-                        } else if (/\b9th/.test(name)) {
-                            return name.replace(/\b9th/, '9-ft Under');
-                        } else if (/\b13th/.test(name)) {
-                            return name.replace(/\b13th/, 'Friday the 13th');
-                        } else if (/\bL\b/.test(name)) {
-                            return name.replace(/\bL\b/, 'Hell');
-                        } else if (/\bZ\b/.test(name)) {
-                            return name.replace(/\bZ\b/, 'Zombie');
-                        } else if (/Broom/.test(name)) {
-                            return name.replace(/Broom/, 'Witch’s Broom');
-                        } else if (/Broo/.test(name)) {
-                            return name.replace(/Broo/, 'Booo');
-                        } else if (/Bow/.test(name)) {
-                            return name.replace(/Bow/, 'Boo!-w');
-                        } else if (/^W.?\s/.test(name)) {
-                            return name.replace(/^W(.?)\s/i, 'Pest ');
-                        } else if (/^West?\s/.test(name)) {
-                            return name.replace(/^West\s/i, 'Pest ');
-                        } else if (/^E.?\s/.test(name)) {
-                            return name.replace(/^E(.?)\s/i, 'Beast ');
-                        } else if (/^East?\s/.test(name)) {
-                            return name.replace(/^East\s/i, 'Beast ');
-                        }
-                        return (Math.random() > .20) ? adjective(name) : name;
-                    }
-                font:
-                    fill: white
-                    typeface: 100 11px Helvetica
             roads:
                 order: 4
                 color: [0, 0, 0]
                 width: 8
+
+        labels:
+            filter: { name: true }
+            draw:
+                text:
+                    order: 6
+                    text_source: |
+                        function () {
+                            var name = feature.name;
+
+                            function adjective(name) {
+                                var dice = Math.random();
+                                var words = [
+                                    'Haunted', 'Scary', 'Morbid', 'Silent',
+                                    'Bizarre', 'Ghastly', 'Grim', 'Spooky',
+                                    'Mysterious', 'Gruesome', 'Gory', 'Moonlit', 
+                                    'Deadly', 'Macabre', 'Dreadful', 'Supernatural',
+                                    'Unnerving', 'Shadowy', 'Creepy', 'Eerie', 
+                                    'Bloody', 'Wicked'
+                                ];
+                                return words[Math.floor(dice * words.length)] + ' ' + name;
+                            }
+
+                            function replacement(name) {
+                                var dice = Math.random();
+                                // TODO
+                            }
+
+                            if (/\bO/.test(name)) {
+                                return (Math.random() > 0.5) ? name.replace(/\bO/, 'Oooooo') : adjective(name);
+                            } else if (/ave\b/.test(name)) {
+                                return name.replace(/(\w)ave\b/, 'grave');
+                            } else if (/Square/.test(name)) {
+                                return name.replace(/Square/, 'Scare');
+                            } else if (/are\b/.test(name)) {
+                                return name.replace(/(\w)are\b/, 'scare');
+                            } else if (/house\b/.test(name)) {
+                                return name.replace(/house\b/, 'Haunted House');
+                            } else if (/c(a|o)ry\b/.test(name)) {
+                                return name.replace(/c(a|o)ry\b/, '-gory');
+                            } else if (/dero\b/.test(name)) {
+                                return name.replace(/dero\b/, '-devil');
+                            } else if (/fair/.test(name)) {
+                                return name.replace(/fair/, 'fear');
+                            } else if (/Fair/.test(name)) {
+                                return name.replace(/Fair/, 'Fear');
+                            } else if (/park/.test(name)) {
+                                return name.replace(/park/, 'dark');
+                            } else if (/Park/.test(name)) {
+                                return name.replace(/Park/, 'Dark');
+                            } else if (/^New/.test(name)) {
+                                return name.replace(/^New/, 'Boo');
+                            } else if (/^Eye/.test(name)) {
+                                return name.replace(/^Eye/, 'Eyeball');
+                            } else if (/\bI\b/.test(name)) {
+                                return name.replace(/\bI\b/, 'Eyeball');
+                            } else if (/^S(\w+) Hill/.test(name)) {
+                                return name.replace(/^S(\w+) Hill/, 'Silent Hill');
+                            } else if (/Greenway/.test(name)) {
+                                return name.replace(/Greenway/, 'Graveyard');
+                            } else if (/Yard/.test(name)) {
+                                return name.replace(/Yard/, 'Graveyard');
+                            } else if (/Highway/.test(name)) {
+                                return name.replace(/Highway/, 'Frightway');
+                            } else if (/Center|Centre/.test(name)) {
+                                return name.replace(/Center|Centre/, 'Cemetary');
+                            } else if (/Walk$/.test(name)) {
+                                return name.replace(/Walk$/, 'Walking Dead');
+                            } else if (/walk\b/.test(name)) {
+                                return name.replace(/walk\b/, 'walking Dead');
+                            } else if (/Glade/.test(name)) {
+                                return name.replace(/Glade/, 'Grave');
+                            } else if (/Saint/.test(name)) {
+                                return name.replace(/Saint/, 'Ain’t');
+                            } else if (/Mort/.test(name)) {
+                                return name.replace(/Mort(\w+)/, 'Mortal');
+                            } else if (/ier\b/.test(name)) {
+                                return name.replace(/ier\b/, '-eerie');
+                            } else if (/Hous/.test(name)) {
+                                return name.replace(/Hous/, 'Howls');
+                            } else if (/Bleecker/.test(name)) {
+                                return name.replace(/Bleecker/, 'Bleaker');
+                            } else if (/Co(\w*)ver/.test(name)) {
+                                return name.replace(/Co(\w*)ver/, 'Cadaver');
+                            } else if (/Terrace/.test(name)) {
+                                return name.replace(/Terrace/, 'Terrors');
+                            } else if (/Pennsylvania/.test(name)) {
+                                // 50% chance that Pennsylvania gets replaced with Transylvania
+                                return (Math.random() > .5) ? name.replace(/Pennsylvania/, 'Transylvania') : name;
+                            } else if (/River\b/.test(name)) {
+                                return name.replace(/River/, 'River o’ Blood');
+                            } else if (/gheny\b/.test(name)) {
+                                return name.replace(/gheny/, 'ghouly');
+                            } else if (/view\b/.test(name)) {
+                                return name.replace(/view/, 'v-eeeew');
+                            } else if (/wich/.test(name)) {
+                                return name.replace(/wich/, ' Witch');
+                            } else if (/berry/.test(name)) {
+                                return name.replace(/berry/, 'scary');
+                            } else if (/\b66th/.test(name)) {
+                                return name.replace(/\b66th/, '666th');
+                            } else if (/\b6th/.test(name)) {
+                                return name.replace(/\b6th/, '666th');
+                            } else if (/\b9th/.test(name)) {
+                                return name.replace(/\b9th/, '9-ft Under');
+                            } else if (/\b13th/.test(name)) {
+                                return name.replace(/\b13th/, 'Friday the 13th');
+                            } else if (/\bZ\b/.test(name)) {
+                                return name.replace(/\bZ\b/, 'Zombie');
+                            } else if (/Broom/.test(name)) {
+                                return name.replace(/Broom/, 'Witch’s Broom');
+                            } else if (/Broo/.test(name)) {
+                                return name.replace(/Broo/, 'Booo');
+                            } else if (/Bow/.test(name)) {
+                                return name.replace(/Bow/, 'Boo!-w');
+                            } else if (/^W.?\s/.test(name)) {
+                                return name.replace(/^W(.?)\s/i, 'Pest ');
+                            } else if (/^West?\s/.test(name)) {
+                                return name.replace(/^West\s/i, 'Pest ');
+                            } else if (/^E.?\s/.test(name)) {
+                                return name.replace(/^E(.?)\s/i, 'Beast ');
+                            } else if (/^East?\s/.test(name)) {
+                                return name.replace(/^East\s/i, 'Beast ');
+                            }
+                            return (Math.random() > .20) ? adjective(name) : name;
+                        }
+                    font:
+                        fill: white
+                        typeface: 100 11px Helvetica
         oneway:
             filter: { oneway: yes }
             draw: { roads: { color: red } }
