@@ -523,10 +523,12 @@ layers:
                         } else if (/Pennsylvania/.test(name)) {
                             // 50% chance that Pennsylvania gets replaced with Transylvania
                             return (Math.random() > .5) ? name.replace(/Pennsylvania/, 'Transylvania') : name;
+                        } else if (/River\b/.test(name)) {
+                            return name.replace(/River/, 'River o’ Blood');
                         } else if (/gheny\b/.test(name)) {
-                            return name.replace(/gheny\b/, 'ghouly');
+                            return name.replace(/gheny/, 'ghouly');
                         } else if (/view\b/.test(name)) {
-                            return name.replace(/view\b/, 'v-eeeew');
+                            return name.replace(/view/, 'v-eeeew');
                         } else if (/wich/.test(name)) {
                             return name.replace(/wich/, ' Witch');
                         } else if (/berry/.test(name)) {
