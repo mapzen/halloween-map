@@ -1,2 +1,5 @@
 echo "lets deploy"
-aws s3 sync . s3://static-$1.mapzen.com/maps/halloween/ --exclude ".git/*" --exclude "venv/*"
+aws s3 cp index.html s3://static-$1.mapzen.com/maps/halloween/
+aws s3 cp halloween.yaml s3://static-$1.mapzen.com/maps/halloween/
+aws s3 cp main.js s3://static-$1.mapzen.com/maps/halloween/
+aws s3 sync images/ s3://static-$1.mapzen.com/maps/halloween/images/
