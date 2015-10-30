@@ -399,7 +399,7 @@ layers:
     roads:
         data: { source: osm, layer: roads }
         filter: { not: { kind: [rail, ferry] } }
-    
+
         draw:
             roads:
                 order: 4
@@ -407,7 +407,11 @@ layers:
                 width: 8
 
         labels:
-            filter: { name: true }
+            filter:
+                name: true
+                any:
+                    - $zoom: { min: 15 }
+                    - kind: [highway, major_road]            
             draw:
                 text:
                     order: 6
