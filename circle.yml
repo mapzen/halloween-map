@@ -12,7 +12,7 @@ test:
 
 deployment:
   staging:
-    branch: master
+    branch: gh-pages
     commands:
       - ./deploy dev
   production:
