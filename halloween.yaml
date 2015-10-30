@@ -20,11 +20,11 @@ textures:
         filtering: mipmap
         sprites:
             # define sprites: [x origin, y origin, width, height]
-            axe: [5, 5, 210, 205]
-            sport: [215, 5, 420, 205]
-            bats: [425, 5, 630, 205]
-            pet-store: [635, 5, 840, 205]
-            mummy: [845, 5, 1050, 205]
+            axe: [5, 5, 210, 210]
+            sport: [215, 5, 420, 210]
+            bats: [425, 5, 630, 210]
+            pet-store: [635, 5, 840, 210]
+            mummy: [845, 5, 1050, 210]
             cemetary: [5, 215, 210, 420]
             toys: [215, 215, 420, 420]
             cop: [425, 215, 630, 420]
@@ -32,7 +32,7 @@ textures:
             nurse: [845, 215, 1050, 420]
             dracula: [5, 425, 210, 630]
             eyeball: [215, 425, 420, 630]
-            fangs: [425,425, 630, 630]
+            fangs: [425, 425, 630, 630]
             frankenstein: [635, 425, 840, 630]
             skull1: [845, 425, 1050, 630]
             hand: [5, 635, 210, 840]
@@ -411,7 +411,7 @@ layers:
                 name: true
                 any:
                     - $zoom: { min: 15 }
-                    - kind: [highway, major_road]            
+                    - kind: [highway, major_road]
             draw:
                 text:
                     order: 6
@@ -424,9 +424,9 @@ layers:
                                 var words = [
                                     'Haunted', 'Scary', 'Morbid', 'Silent',
                                     'Bizarre', 'Ghastly', 'Grim', 'Spooky',
-                                    'Mysterious', 'Gruesome', 'Gory', 'Moonlit', 
+                                    'Mysterious', 'Gruesome', 'Gory', 'Moonlit',
                                     'Deadly', 'Macabre', 'Dreadful', 'Supernatural',
-                                    'Unnerving', 'Shadowy', 'Creepy', 'Eerie', 
+                                    'Unnerving', 'Shadowy', 'Creepy', 'Eerie',
                                     'Bloody', 'Wicked'
                                 ];
                                 return words[Math.floor(dice * words.length)] + ' ' + name;
@@ -688,18 +688,18 @@ layers:
             spiritual-center:
                 filter: { kind: [spiritual_center, spiritual-center, place_of_worship, wayside_chapel] }
                 draw:   { icons: { sprite: axe} }
-                church:
-                    filter: { kind: place_of_worship, religion: christian }
-                    draw:   { icons: { sprite: axe } }
-                synagogue:
-                    filter: { kind: place_of_worship, religion: jewish }
-                    draw:   { icons: { sprite: axe } }
-                buddhist:
-                    filter: { kind: place_of_worship, religion: buddhist }
-                    draw:   { icons: { sprite: axe } }
-                mosque:
-                    filter: { kind: place_of_worship, religion: muslim }
-                    draw:   { icons: { sprite: axe } }
+                # church:
+                #     filter: { kind: place_of_worship, religion: christian }
+                #     draw:   { icons: { sprite: axe } }
+                # synagogue:
+                #     filter: { kind: place_of_worship, religion: jewish }
+                #     draw:   { icons: { sprite: axe } }
+                # buddhist:
+                #     filter: { kind: place_of_worship, religion: buddhist }
+                #     draw:   { icons: { sprite: axe } }
+                # mosque:
+                #     filter: { kind: place_of_worship, religion: muslim }
+                #     draw:   { icons: { sprite: axe } }
 
             theme-park:
                 filter: { kind: [theme_park, theme-park, miniature_golf] }
