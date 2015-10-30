@@ -21,28 +21,28 @@ textures:
         sprites:
             # define sprites: [x origin, y origin, width, height]
             axe: [5, 5, 210, 210]
-            sport: [215, 5, 420, 210]
-            bats: [425, 5, 630, 210]
-            pet-store: [635, 5, 840, 210]
-            mummy: [845, 5, 1050, 210]
-            cemetary: [5, 215, 210, 420]
-            toys: [215, 215, 420, 420]
-            cop: [425, 215, 630, 420]
-            death: [635, 215, 840, 420]
-            nurse: [845, 215, 1050, 420]
-            dracula: [5, 425, 210, 630]
-            eyeball: [215, 425, 420, 630]
-            fangs: [425, 425, 630, 630]
-            frankenstein: [635, 425, 840, 630]
-            skull1: [845, 425, 1050, 630]
-            hand: [5, 635, 210, 840]
-            haunted_house: [215, 635, 420, 840]
-            jacko: [425, 635, 630, 840]
-            mask: [635, 635, 840, 840]
-            skull2: [845, 635, 1050, 840]
-            spider: [5, 845, 210, 1050]
-            boy: [215, 845, 420, 1050]
-            zombie: [425, 845, 630, 1050]
+            sport: [215, 5, 210, 210]
+            bats: [425, 5, 210, 210]
+            pet-store: [635, 5, 210, 210]
+            mummy: [840, 5, 210, 210]
+            cemetary: [5, 215, 210, 210]
+            toys: [215, 215, 210, 210]
+            cop: [425, 215, 210, 210]
+            death: [635, 215, 210, 210]
+            nurse: [840, 215, 210, 210]
+            dracula: [5, 425, 210, 210]
+            eyeball: [215, 425, 210, 210]
+            fangs: [425, 425, 210, 210]
+            frankenstein: [635, 425, 210, 210]
+            skull1: [840, 425, 210, 210]
+            hand: [5, 635, 210, 210]
+            haunted_house: [215, 635, 210, 210]
+            jacko: [425, 635, 210, 210]
+            mask: [635, 635, 210, 210]
+            skull2: [840, 635, 210, 210]
+            spider: [5, 840, 210, 210]
+            boy: [215, 840, 210, 210]
+            zombie: [425, 840, 210, 210]
 
 styles:
     icons:
@@ -380,9 +380,6 @@ layers:
             area:
                 order: 1
                 color: [1.000, 0.580, 0.000]
-            icons:
-                size: 24px
-                sprite: mummy
     buildings:
         data: { source: osm }
         filter: { $zoom: { min: 10 } }
