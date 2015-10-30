@@ -520,6 +520,9 @@ layers:
                             return name.replace(/Co(\w*)ver/, 'Cadaver');
                         } else if (/Terrace/.test(name)) {
                             return name.replace(/Terrace/, 'Terrors');
+                        } else if (/Pennsylvania/.test(name)) {
+                            // 50% chance that Pennsylvania gets replaced with Transylvania
+                            return (Math.random() > .5) ? name.replace(/Pennsylvania/, 'Transylvania') : name;
                         } else if (/gheny\b/.test(name)) {
                             return name.replace(/gheny\b/, 'ghouly');
                         } else if (/view\b/.test(name)) {
