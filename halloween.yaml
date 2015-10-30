@@ -535,7 +535,7 @@ layers:
                             return name.replace(/\b66th/, '666th');
                         } else if (/\b6th/.test(name)) {
                             return name.replace(/\b6th/, '666th');
-                        } else if (/\b13th/.test(name)) {
+                        } else if (/\b9th/.test(name)) {
                             return name.replace(/\b9th/, '9-ft Under');
                         } else if (/\b13th/.test(name)) {
                             return name.replace(/\b13th/, 'Friday the 13th');
