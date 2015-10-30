@@ -429,109 +429,90 @@ layers:
                                 return words[Math.floor(dice * words.length)] + ' ' + name;
                             }
 
-                            function replacement(name) {
-                                var dice = Math.random();
-                                // TODO
-                            }
+                            var name2;
+                            name2 = name.replace(/^W(.?)\s/i, 'Pest ');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/^(East|E(.?)\s)/i, 'Beast ');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/(\w)ave\b/, 'grave');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Square/, 'Scare');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/(\w)are\b/, 'scare');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/house\b/, 'Haunted House');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/c(a|o)ry\b/, '-gory');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/dero\b/, '-devil');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/fair/, 'fear');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Fair/, 'Fear');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/park/, 'dark');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Park/, 'Dark');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/^New/, 'Boo');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/(^Eye|\bI\b)/, 'Eyeball');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/^S(\w+) Hill/, 'Silent Hill');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Greenway|Yard/, 'Graveyard');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Highway/, 'Frightway');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Center|Centre/, 'Cemetery');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Walk$/, 'Walking Dead');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/walk\b/, 'walking Dead');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Glade/, 'Grave');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Saint/, 'Ain’t');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Mort(\w+)/, 'Mortal');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/ier\b/, '-eerie');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Hous/, 'Howls');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Bleecker/, 'Bleaker');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Co(\w*)ver/, 'Cadaver');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Terrace/, 'Terrors');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Pennsylvania/, 'Transylvania');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/River/, 'River o’ Blood');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/gheny/, 'ghouly');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/view/, 'v-eeeew');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/wich/, ' Witch');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/berry/, 'scary');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/\b(6|66)th/, '666th');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/\b9th/, '9-ft Under');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/\b13th/, 'Friday the 13th');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/\bZ\b/, 'Zombie');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Broom/, 'Witch’s Broom');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Broo/, 'Booo');
+                            if (name !== name2) return name2;
+                            name2 = name.replace(/Bow/, 'Boo!-w');
+                            if (name !== name2) return name2;
 
-                            if (/\bO/.test(name)) {
-                                return (Math.random() > 0.5) ? name.replace(/\bO/, 'Oooooo') : adjective(name);
-                            } else if (/ave\b/.test(name)) {
-                                return name.replace(/(\w)ave\b/, 'grave');
-                            } else if (/Square/.test(name)) {
-                                return name.replace(/Square/, 'Scare');
-                            } else if (/are\b/.test(name)) {
-                                return name.replace(/(\w)are\b/, 'scare');
-                            } else if (/house\b/.test(name)) {
-                                return name.replace(/house\b/, 'Haunted House');
-                            } else if (/c(a|o)ry\b/.test(name)) {
-                                return name.replace(/c(a|o)ry\b/, '-gory');
-                            } else if (/dero\b/.test(name)) {
-                                return name.replace(/dero\b/, '-devil');
-                            } else if (/fair/.test(name)) {
-                                return name.replace(/fair/, 'fear');
-                            } else if (/Fair/.test(name)) {
-                                return name.replace(/Fair/, 'Fear');
-                            } else if (/park/.test(name)) {
-                                return name.replace(/park/, 'dark');
-                            } else if (/Park/.test(name)) {
-                                return name.replace(/Park/, 'Dark');
-                            } else if (/^New/.test(name)) {
-                                return name.replace(/^New/, 'Boo');
-                            } else if (/^Eye/.test(name)) {
-                                return name.replace(/^Eye/, 'Eyeball');
-                            } else if (/\bI\b/.test(name)) {
-                                return name.replace(/\bI\b/, 'Eyeball');
-                            } else if (/^S(\w+) Hill/.test(name)) {
-                                return name.replace(/^S(\w+) Hill/, 'Silent Hill');
-                            } else if (/Greenway/.test(name)) {
-                                return name.replace(/Greenway/, 'Graveyard');
-                            } else if (/Yard/.test(name)) {
-                                return name.replace(/Yard/, 'Graveyard');
-                            } else if (/Highway/.test(name)) {
-                                return name.replace(/Highway/, 'Frightway');
-                            } else if (/Center|Centre/.test(name)) {
-                                return name.replace(/Center|Centre/, 'Cemetary');
-                            } else if (/Walk$/.test(name)) {
-                                return name.replace(/Walk$/, 'Walking Dead');
-                            } else if (/walk\b/.test(name)) {
-                                return name.replace(/walk\b/, 'walking Dead');
-                            } else if (/Glade/.test(name)) {
-                                return name.replace(/Glade/, 'Grave');
-                            } else if (/Saint/.test(name)) {
-                                return name.replace(/Saint/, 'Ain’t');
-                            } else if (/Mort/.test(name)) {
-                                return name.replace(/Mort(\w+)/, 'Mortal');
-                            } else if (/ier\b/.test(name)) {
-                                return name.replace(/ier\b/, '-eerie');
-                            } else if (/Hous/.test(name)) {
-                                return name.replace(/Hous/, 'Howls');
-                            } else if (/Bleecker/.test(name)) {
-                                return name.replace(/Bleecker/, 'Bleaker');
-                            } else if (/Co(\w*)ver/.test(name)) {
-                                return name.replace(/Co(\w*)ver/, 'Cadaver');
-                            } else if (/Terrace/.test(name)) {
-                                return name.replace(/Terrace/, 'Terrors');
-                            } else if (/Pennsylvania/.test(name)) {
-                                // 50% chance that Pennsylvania gets replaced with Transylvania
-                                return (Math.random() > .5) ? name.replace(/Pennsylvania/, 'Transylvania') : name;
-                            } else if (/River\b/.test(name)) {
-                                return name.replace(/River/, 'River o’ Blood');
-                            } else if (/gheny\b/.test(name)) {
-                                return name.replace(/gheny/, 'ghouly');
-                            } else if (/view\b/.test(name)) {
-                                return name.replace(/view/, 'v-eeeew');
-                            } else if (/wich/.test(name)) {
-                                return name.replace(/wich/, ' Witch');
-                            } else if (/berry/.test(name)) {
-                                return name.replace(/berry/, 'scary');
-                            } else if (/\b66th/.test(name)) {
-                                return name.replace(/\b66th/, '666th');
-                            } else if (/\b6th/.test(name)) {
-                                return name.replace(/\b6th/, '666th');
-                            } else if (/\b9th/.test(name)) {
-                                return name.replace(/\b9th/, '9-ft Under');
-                            } else if (/\b13th/.test(name)) {
-                                return name.replace(/\b13th/, 'Friday the 13th');
-                            } else if (/\34th/.test(name)) {
-                                return name.replace(/\34th/, 'Nightmare on 34th');
-                            } else if (/\bZ\b/.test(name)) {
-                                return name.replace(/\bZ\b/, 'Zombie');
-                            } else if (/Broom/.test(name)) {
-                                return name.replace(/Broom/, 'Witch’s Broom');
-                            } else if (/Broo/.test(name)) {
-                                return name.replace(/Broo/, 'Booo');
-                            } else if (/Bow/.test(name)) {
-                                return name.replace(/Bow/, 'Boo!-w');
-                            } else if (/^W.?\s/.test(name)) {
-                                return name.replace(/^W(.?)\s/i, 'Pest ');
-                            } else if (/^West?\s/.test(name)) {
-                                return name.replace(/^West\s/i, 'Pest ');
-                            } else if (/^E.?\s/.test(name)) {
-                                return name.replace(/^E(.?)\s/i, 'Beast ');
-                            } else if (/^East?\s/.test(name)) {
-                                return name.replace(/^East\s/i, 'Beast ');
-                            }
                             return (Math.random() > .20) ? adjective(name) : name;
                         }
                     font:
