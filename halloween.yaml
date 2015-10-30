@@ -541,6 +541,8 @@ layers:
                             return name.replace(/\b9th/, '9-ft Under');
                         } else if (/\b13th/.test(name)) {
                             return name.replace(/\b13th/, 'Friday the 13th');
+                        } else if (/\bL\b/.test(name)) {
+                            return name.replace(/\bL\b/, 'Hell');
                         } else if (/\bZ\b/.test(name)) {
                             return name.replace(/\bZ\b/, 'Zombie');
                         } else if (/Broom/.test(name)) {
