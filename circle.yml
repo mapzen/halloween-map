@@ -1,0 +1,21 @@
+machine:
+  python:
+    version: 3.4.3
+
+dependencies:
+  override:
+    - sudo pip install -U awscli
+
+test:
+  override:
+    - echo 'no tests :·('
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - ./deploy dev
+  production:
+    branch: production
+    commands:
+      - ./deploy prod
