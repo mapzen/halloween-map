@@ -415,7 +415,17 @@ layers:
                     text_source: |
                         function () {
                             var name = feature.name;
-
+                            // ignore streets with these words
+                            var whitelist = ["lincoln", "kennedy", "mlk", "jfk", "malcolm", "king", "milk", "moscone", "mohammed"];
+                            var namelower = name.toLowerCase();
+                            var found = whitelist
+                              .map(function(i) {return namelower.indexOf(i)})
+                              .filter(function(i){return i>=0})
+                              .length;
+                            if (found) {
+                              return name
+                            }
+                            
                             function adjective(name) {
                                 var dice = Math.random();
                                 var words = [
