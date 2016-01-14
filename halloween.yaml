@@ -51,9 +51,6 @@ styles:
         interactive: false
     space-tile:
         shaders:
-            defines:
-                TILE_SCALE: 0.0002445
-                NORMALIZED_SHORT(x): (x * 32767.)
             blocks:
                 global: |
                     // Variant to be add to both vertex and fragments shaders
@@ -62,11 +59,11 @@ styles:
                     // Get the coordinates in tile space
                     // ================================
                     vec2 getTileCoords () {
-                        return fract(v_pos.xy*TILE_SCALE);
+                        return fract(v_pos.xy);
                     }
                 position: |
                     // Normalize the attribute position of a vertex
-                    v_pos = NORMALIZED_SHORT(a_position.xyz);
+                    v_pos = modelPosition().xyz;
     space-constant:
         shaders:
             blocks:
@@ -323,7 +320,7 @@ styles:
         shaders:
             blocks:
                 color: |
-                    color.rgb *= vec3(min((v_world_position.z*.001+.5),1.));
+                    color.rgb *= vec3(min((worldPosition().z*.001+.5),1.));
     area:
         base: polygons
         mix: [patterns-stripes, space-constant, grid]
@@ -577,118 +574,119 @@ layers:
         icons:
             pet-store:
                 filter: { kind: [pet, pet-store, pet-service, pet_store] }
-                draw:   { icons: { sprite: pet-store } }
+                draw:   { icons: { size: 32px, sprite: pet-store } }
 
             sporting-goods-shop:
                 filter: { kind: [sporting_goods, sporting-goods-shop, sports, outdoor] }
-                draw:   { icons: { sprite: sport } }
+                draw:   { icons: { size: 32px, sprite: sport } }
 
             athletics-sports:
                 filter: { kind: [athletic_sports, recreation_ground] }
-                draw:   { icons: { sprite: sport } }
+                draw:   { icons: { size: 32px, sprite: sport } }
 
             sports-pitch:
                 filter: { kind: [grass, pitch], label_placement: yes, area: true, $zoom: { min: 17 } }
                 draw:
                     icons:
+                        size: 32px
                         sprite: function() { return feature.sport }
                         visible: true
                 baseball:
                     filter: { sport: baseball }
-                    draw: { icons: { sprite: sport } }
+                    draw: { icons: { size: 32px, sprite: sport } }
 
             toy-game-store:
                 filter: { kind: [toys, toy-game-store, baby_goods] }
-                draw:   { icons: { sprite: toys } }
+                draw:   { icons: { size: 32px, sprite: toys } }
 
             video-game-store:
                 filter: { kind: [video_games] }
-                draw:   { icons: { sprite: toys } }
+                draw:   { icons: { size: 32px, sprite: toys } }
 
             candy-store:
                         filter: { kind: [candy, candy-store, confectionery] }
-                        draw:   { icons: { sprite: fangs } }
+                        draw:   { icons: { size: 32px, sprite: fangs } }
 
             animal-shelter:
                 filter: { kind: [animal_shelter, animal-shelter, animal_boarding] }
-                draw:   { icons: { sprite: pet-store } }
+                draw:   { icons: { size: 32px, sprite: pet-store } }
 
             bar:
                 filter: { kind: [pub, bar] }
-                draw:   { icons: { sprite: death } }
+                draw:   { icons: { size: 32px, sprite: death } }
 
             nightlife:
                 filter: { kind: [nightclub, nightlife] }
-                draw:   { icons: { sprite: death } }
+                draw:   { icons: { size: 32px, sprite: death } }
 
             bookstore:
                 filter: { kind: [books, bookstore] }
-                draw:   { icons: { sprite: haunted_house } }
+                draw:   { icons: { size: 32px, sprite: haunted_house } }
 
             castle:
                 filter: { kind: [castle, fort] }
-                draw:   { icons: { sprite: haunted_house } }
+                draw:   { icons: { size: 32px, sprite: haunted_house } }
 
             hotel:
                 filter: { kind: [hotel, motel, hostel] }
-                draw:   { icons: { sprite: haunted_house } }
+                draw:   { icons: { size: 32px, sprite: haunted_house } }
 
             cemetery:
                 filter: { kind: [grave_yard, cemetery] }
-                draw:   { icons: { sprite: cemetary } }
+                draw:   { icons: { size: 32px, sprite: cemetary } }
 
             dog-run:
                 filter: { kind: [dog_park, dog_run, dog-run] }
-                draw:   { icons: { sprite: hand } }
+                draw:   { icons: { size: 32px, sprite: hand } }
 
             fire-station:
                 filter: { kind: [fire_station, fire-station] }
-                draw:   { icons: { sprite: cop } }
+                draw:   { icons: { size: 32px, sprite: cop } }
 
             gift-shop:
                 filter: { kind: [gift, gift-shop] }
-                draw:   { icons: { sprite: spider } }
+                draw:   { icons: { size: 32px, sprite: spider } }
 
             museum:
                 filter: { kind: [museum, observatory] }
-                draw:   { icons: { sprite: mummy } }
+                draw:   { icons: { size: 32px, sprite: mummy } }
 
             pharmacy:
                 filter: { kind: [pharmacy, chemist] }
-                draw:   { icons: { sprite: nurse } }
+                draw:   { icons: { size: 32px, sprite: nurse } }
 
             optical-shop:
                 filter: { kind: [optician, optical_shop, optical-shop] }
-                draw:   { icons: { sprite: eyeball } }
+                draw:   { icons: { size: 32px, sprite: eyeball } }
 
             post-office:
                 filter: { kind: [post_office, post-office] }
-                draw:   { icons: { sprite: zombie } }
+                draw:   { icons: { size: 32px, sprite: zombie } }
 
             restaurant:
                 filter: { kind: [restaurant, deli] }
-                draw:   { icons: { sprite: bats } }
+                draw:   { icons: { size: 32px, sprite: bats } }
 
             school:
                 filter: { kind: [school, kindergarten] }
-                draw:   { icons: { sprite: boy } }
+                draw:   { icons: { size: 32px, sprite: boy } }
 
             spiritual-center:
                 filter: { kind: [spiritual_center, spiritual-center, place_of_worship, wayside_chapel] }
-                draw:   { icons: { sprite: axe} }
+                draw:   { icons: { size: 32px, sprite: axe} }
                 # church:
                 #     filter: { kind: place_of_worship, religion: christian }
-                #     draw:   { icons: { sprite: axe } }
+                #     draw:   { icons: { size: 32px, sprite: axe } }
                 # synagogue:
                 #     filter: { kind: place_of_worship, religion: jewish }
-                #     draw:   { icons: { sprite: axe } }
+                #     draw:   { icons: { size: 32px, sprite: axe } }
                 # buddhist:
                 #     filter: { kind: place_of_worship, religion: buddhist }
-                #     draw:   { icons: { sprite: axe } }
+                #     draw:   { icons: { size: 32px, sprite: axe } }
                 # mosque:
                 #     filter: { kind: place_of_worship, religion: muslim }
-                #     draw:   { icons: { sprite: axe } }
+                #     draw:   { icons: { size: 32px, sprite: axe } }
 
             theme-park:
                 filter: { kind: [theme_park, theme-park, miniature_golf] }
-                draw:   { icons: { sprite: bats } }
+                draw:   { icons: { size: 32px, sprite: bats } }
