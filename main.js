@@ -29,7 +29,11 @@ map = (function () {
 
     var map = L.map('map', {
         "keyboardZoomOffset" : .05,
-        scrollWheelZoom: false
+        scrollWheelZoom: (window.self === window.top) ? true : false,
+        // If iframed & touchscreen, disable dragging & tap to prevent Leaflet
+        // from hijacking the page scroll.
+        dragging: (window.self !== window.top && L.Browser.touch) ? false : true,
+        tap: (window.self !== window.top && L.Browser.touch) ? false : true
     });
 
     var style_file = 'halloween.yaml';
@@ -62,16 +66,7 @@ map = (function () {
 
     window.addEventListener('load', function () {
         // Scene initialized
-        layer.on('init', function() {
-        });
         layer.addTo(map);
-
-        // disable scroll wheel zoom when embedded
-        if (window.self !== window.top) {
-            // For some reason have to enable then disable it....
-            map.scrollWheelZoom.enable();
-            map.scrollWheelZoom.disable();
-        }
     });
 
     // map.once('focus', function() { map.scrollWheelZoom.enable(); });
